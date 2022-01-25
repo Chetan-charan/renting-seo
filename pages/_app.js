@@ -35,18 +35,22 @@ function MyApp({ Component,isBot, pageProps }) {
 }
 
 MyApp.getInitialProps = async function getInitialProps({ ctx}) {
-  const {req} = ctx
- 
-  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
-  const isBot = BOTS_USER_AGENTS.some(bot =>
-    userAgent.toLowerCase().includes(bot)
-  )
+  const {req} = await ctx
+      var isBot = false;
+      const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+      if(userAgent){
+         isBot = BOTS_USER_AGENTS.some(bot =>
+          userAgent.toLowerCase().includes(bot)
+        )
+        
 
-  return {
-    isBot
-  }
-
-
+      }
+    
+      return {
+        isBot
+      }
+    
+  
 }
 
 export default MyApp
