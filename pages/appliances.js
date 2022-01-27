@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import useSWRInfinite from "swr/infinite";
 import { useContext } from "react";
 import { BotContext } from "./_app";
+import Head from 'next/head'
 
 export default function Appliances({ data }) {
   const isBotValue = useContext(BotContext);
@@ -46,6 +47,10 @@ export default function Appliances({ data }) {
 
   return (
     <>
+      <Head>
+        <title>Appliances at Kalyanagar</title>
+        <meta name="description" content="Hire Appliances at Kalyan nagar" />
+      </Head>
       <Button
         onClick={() => {
           dispatch(

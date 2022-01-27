@@ -8,6 +8,9 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import itemStyles from "../styles/items.module.css";
 import { useRouter } from "next/router";
 import useSWRInfinite from "swr/infinite";
+import { useContext } from "react";
+import { BotContext } from "./_app";
+import Head from 'next/head'
 
 export default function Fitness({ data }) {
   const isBotValue = useContext(BotContext);
@@ -44,6 +47,10 @@ export default function Fitness({ data }) {
 
   return (
     <>
+      <Head>
+        <title>Funzone at Kalyanagar</title>
+        <meta name="description" content="Hire fitness equipment at Kalyan nagar" />
+      </Head>
       <Button
         onClick={() => {
           dispatch(
